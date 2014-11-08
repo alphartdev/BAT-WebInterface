@@ -165,7 +165,7 @@ class BanEntry extends PunishmentEntry{
 		return array (
 				"id" => $this->id,
 				"headImg" => (isset($this->headUrl))
-				? "<img src='$this->headUrl'><br>" : "",
+				? "<a href='?p=profile&player=$this->player'><img src='$this->headUrl'></a><br>" : "",
 				"player" => $this->player,
 				"server" => $this->server,
 				"reason" => $this->reason,
