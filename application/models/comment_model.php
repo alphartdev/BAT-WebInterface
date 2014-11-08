@@ -63,10 +63,10 @@ class CommentEntry extends PunishmentEntry{
 	function __construct($data){
 		if(isset($data['player'])){
 			$this->player = $data['player'];
-			$this->headUrl = "https://minotar.net/avatar/".$this->player."/32";
+			$this->headUrl = "https://cravatar.eu/head/".$this->player."/32";
 		}else{
 			$this->player = $data['entity'];
-			$this->headUrl = "https://minotar.net/avatar/char/32";
+			$this->headUrl = "https://cravatar.eu/head/char/32";
 		}
 		$this->reason = $data ['note'];
 		$this->staff = $data ['staff'];
