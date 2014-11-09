@@ -31,7 +31,7 @@
 					<li class="<?php if(get_class($this) == "mute"){echo "active";}?>"><a href="index.php?p=mute">Mutes</a></li>
 					<li class="<?php if(get_class($this) == "kick"){echo "active";}?>"><a href="index.php?p=kick">Kicks</a></li>
 					<li class="<?php if(get_class($this) == "comment"){echo "active";}?>"><a href="index.php?p=comment">Comments</a></li>
-					<?php if($this->isAdmin()) {include("admin/navbarAddon.php");}?>
+					<?php if($this->isAdmin()) {include("admin/navbarAddon.php");} else { echo "<li class='divider-vertical'></li><li><a href='?p=admin'>Login</a></li>";}?>
 				</ul>
 				<form class="navbar-form navbar-right" method="get">
 					<div class="form-group">

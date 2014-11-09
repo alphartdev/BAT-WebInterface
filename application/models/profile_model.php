@@ -56,7 +56,7 @@ class PlayerData{
 	
 	public function getData(){
 		return array(
-			"headUrl" => "https://minotar.net/avatar/".$this->player."/192",
+			"headUrl" => "https://cravatar.eu/head/".$this->player."/192",
 			"player" => $this->player,
 			"uuid" => $this->uuid,
 			"firstlogin" => $this->firstlogin,

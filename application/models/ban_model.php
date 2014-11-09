@@ -112,13 +112,13 @@ class BanEntry extends PunishmentEntry{
 		$this->id = $data['ban_id'];
 		if(isset($data['player'])){
 			$this->player = $data['player'];
-			$this->headUrl = "https://minotar.net/avatar/".$this->player."/32";
+			$this->headUrl = "https://cravatar.eu/head/".$this->player."/32";
 		}else{
 			if(isset($data['ban_ip'])){
 				$this->player = $data['ban_ip'];
 			}else{
 				$this->player = $data['UUID'];
-				$this->headUrl = "https://minotar.net/avatar/char/32";
+				$this->headUrl = "https://cravatar.eu/head/char/32";
 			}
 		}
 		$this->server = ($data ['ban_server'] == "(global)") ? Message::globalPunishment : $data ['ban_server'];
@@ -165,7 +165,7 @@ class BanEntry extends PunishmentEntry{
 		return array (
 				"id" => $this->id,
 				"headImg" => (isset($this->headUrl))
-				? "<img src='$this->headUrl'><br>" : "",
+				? "<a href='?p=profile&player=$this->player'><img src='$this->headUrl'></a><br>" : "",
 				"player" => $this->player,
 				"server" => $this->server,
 				"reason" => $this->reason,
