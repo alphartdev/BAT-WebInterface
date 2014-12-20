@@ -9,12 +9,11 @@ if(is_dir("__install")){
 	echo "Once you installed the WebInterface, you must delete the install folder to use the interface.";
 	exit;
 }
-session_start();
-require("application/config/messages.php");
-require("classloader.php");
 
-$classLoader = new ClassLoader();
-$classLoader->loadClasses();
+// Load Composer autoload
+require_once("vendor/autoload.php");
+
+session_start();
 
 $router = new Router($_GET);
 $controller = $router->getController();

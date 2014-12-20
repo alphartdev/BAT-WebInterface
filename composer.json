@@ -1,0 +1,10 @@
+{
+  "name": "alphartdev/BAT-WebInterface",
+  "version": "1.3",
+  "description": "The BungeeAdminTools web interface",
+  "dependencies": [],
+  "autoload": {
+    "files": ["application/config/messages.php"],
+    "classmap": ["application/"]
+  }
+}
