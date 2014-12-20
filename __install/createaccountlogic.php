@@ -1,6 +1,7 @@
 <?php
 // Initialize Composer autoload
-require("../vendor/autoload.php");
+chdir("..");
+require("vendor/autoload.php");
 
 // Create user
 $admin_model = new admin_model();

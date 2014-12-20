@@ -4,7 +4,7 @@
   "description": "The BungeeAdminTools web interface",
   "dependencies": [],
   "autoload": {
-    "files": ["application/config/messages.php"],
+    "files": ["application/config/messages.php", "router.php"],
     "classmap": ["application/"]
   }
 }
