@@ -8,12 +8,18 @@ class profile extends BaseController{
 	}
 	
 	protected function index(){
-		$player = (isset($this->urlData['player'])) ? $player = $this->urlData['player'] : null;
-		if(!isset($player)){
+		$player = (isset($this->urlData['player'])) ? $this->urlData['player'] : null;
+		if(empty($player)){
 			echo $this->getErrorPage("<strong>Please specify a player to view his profile ...</strong>");
 			return;
 		}
-		echo $this->viewprofile($player);
+		// Check if the player arg is an IP and trigger IP search if that's the case
+		if(preg_match('/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/', 
+			$player)){
+			echo $this->listPlayersByIp($player);
+		}else{
+			echo $this->viewprofile($player);
+		}
 	}
 
 	public function searchplayer(){
@@ -32,6 +38,23 @@ class profile extends BaseController{
 			$dataSet[] = $entry;
 		}
 		echo json_encode($dataSet);
+	}
+	
+	private function listPlayersByIp($ip){
+		if(!$this->isAdmin()){
+			echo $this->getErrorPage("<strong>You must be authenticated to search player by IP ...</strong>");
+			return;
+		}
+		$this->action = "playersByIp";
+		$players = $this->model->getPlayersByIp($ip);
+		if(empty($players)){
+			echo $this->getErrorPage("<strong>No player with the specified IP (" . $ip . ") was found in the database ...</strong>");
+			return;
+		}
+		return $this->getView(array(
+				"ip" => $ip,
+				"players" => $players
+		));
 	}
 	
 	private function viewprofile($player){

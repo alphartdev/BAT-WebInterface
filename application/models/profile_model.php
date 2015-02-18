@@ -14,6 +14,16 @@ class profile_model extends BaseModel{
 		}
 		return $players;
 	}
+	
+	public function getPlayersByIp($ip){
+		$query = $this->database->prepare( "SELECT BAT_player FROM BAT_players comments WHERE lastip = :ip;" );
+		$query->execute(array("ip" => $ip ));
+		$players = array();
+		while($data = $query->fetch()){
+			$players[] = $data['BAT_player'];
+		}
+		return $players;
+	}
 }
 class PlayerData{
 	// Basic informations
