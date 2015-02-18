@@ -45,7 +45,12 @@ foreach ($data as $entry){
 	$ban = $entry->getData();
 	?>
 		<tr class="<?php echo $ban['state'] ? "warning" : "info-bat";?>">
-			<td ><?php echo $ban['headImg'] . $ban['player'];?></td>
+			<td ><?php 
+			$contentToDisplay = ($ban['ipPunishment']) 
+				? (($this->isAdmin()) ? $ban['player'] : Message::ipHidden)
+				: $ban['headImg'] . $ban['player'];
+			echo $contentToDisplay;
+			?></td>
 			<td><?php echo $ban['server'];?></td>
 			<td><?php echo $ban['reason'];?></td>
 			<td><?php echo $ban['staff'];?></td>

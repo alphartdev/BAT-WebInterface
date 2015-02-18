@@ -29,6 +29,16 @@ abstract class PunishmentEntry{
 	protected $reason;
 	protected $staff;
 	protected $date;
+	
+	private $ipPunishment = false;
+	
+	protected function markAsIpPunishment(){
+		$this->ipPunishment = true;	
+	}
+	
+	protected function isIPPunishment(){
+		return $this->ipPunishment;
+	}
 }
 class AJAXAnswer{
 	private $message;

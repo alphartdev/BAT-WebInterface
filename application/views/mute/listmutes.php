@@ -45,7 +45,12 @@
 	$mute = $entry->getData();
 	?>
 		<tr class="<?php echo $mute['state'] ? "warning" : "info-bat";?>">
-			<td ><?php echo $mute['headImg'] . $mute['player'];?></td>
+			<td ><?php 
+			$contentToDisplay = ($mute['ipPunishment']) 
+				? (($this->isAdmin()) ? $mute['player'] : Message::ipHidden)
+				: $mute['headImg'] . $mute['player'];
+			echo $contentToDisplay;
+			?></td>
 			<td><?php echo $mute['server'];?></td>
 			<td><?php echo $mute['reason'];?></td>
 			<td><?php echo $mute['staff'];?></td>

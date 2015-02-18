@@ -116,6 +116,7 @@ class BanEntry extends PunishmentEntry{
 		}else{
 			if(isset($data['ban_ip'])){
 				$this->player = $data['ban_ip'];
+				$this->markAsIpPunishment();
 			}else{
 				$this->player = $data['UUID'];
 				$this->headUrl = "https://cravatar.eu/head/char/32";
@@ -174,7 +175,8 @@ class BanEntry extends PunishmentEntry{
 				"state" => $this->state,
 				"unban_date" => $this->unbanDate,
 				"unban_staff" => $this->unbanStaff,
-				"unban_reason" => $this->unbanReason
+				"unban_reason" => $this->unbanReason,
+				"ipPunishment" => $this->isIPPunishment()
 		);
 	}
 }
