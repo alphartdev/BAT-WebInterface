@@ -2,7 +2,7 @@
 /**
  * BungeeAdminTools - WebInterface
  * Author : Alphart
- * Version 1.3
+ * Version 1.5
  * License : GPL V3 -> https://github.com/alphartdev/BungeeAdminTools/blob/master/LICENSE
  */
 if(is_dir("__install")){
