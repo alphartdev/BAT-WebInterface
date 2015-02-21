@@ -5,12 +5,12 @@
 <title><?php echo Message::network;?> punishment list</title>
 <!-- Bootstrap and jquery includes -->
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
 <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <!-- Custom fonts -->
-<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Bree%20Serif">
-<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Alegreya">
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Bree%20Serif">
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Alegreya">
 <!-- Additional CSS and JS -->
 <link rel="stylesheet" href="public/styles/base-stylesheet.css">
 <script src="public/js/base-script.js"></script>
