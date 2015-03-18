@@ -72,7 +72,7 @@ class ban_model extends BaseModel{
 			$answer = new AJAXAnswer("Successfully unbanned.", true);
 			return $answer->getJSON();
 		}else{
-			$answer = new AJAXAnswer("Error : No active ban with this id !", false);
+			$answer = new AJAXAnswer("Error : No active ban with this id!", false);
 			return $answer->getJSON();
 		}
 	}
@@ -91,7 +91,7 @@ class ban_model extends BaseModel{
 		$query->bindParam(":reason", $banReason);
 		$query->execute();
 		if($query->rowCount() > 0){
-			$answer = new AJAXAnswer("Banned successfully !", true);
+			$answer = new AJAXAnswer("Banned successfully!", true);
 			return $answer->getJSON();
 		}else{
 			$answer = new AJAXAnswer("Error : the ban process has failed for unknown reason.", false);

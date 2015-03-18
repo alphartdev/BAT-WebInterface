@@ -33,11 +33,11 @@ class admin_model extends BaseModel{
 		}
 	
 		if(strlen($user) > 32){
-			$answer = new AJAXAnswer("Error: the username length must be inferior or equal to 32.", false);
+			$answer = new AJAXAnswer("Error: the username length must be 32 characters or less.", false);
 			return $answer->getJSON();
 		}
 		if(strlen($password) < 6){
-			$answer = new AJAXAnswer("Error: the password length must be greater than 5.", false);
+			$answer = new AJAXAnswer("Error: the password length must be 6 characters minimum", false);
 			return $answer->getJSON();
 		}
 	
@@ -49,17 +49,17 @@ class admin_model extends BaseModel{
 				"user" => $user,
 				"pwd" => $hash,
 				"salt" => $salt));
-		$answer = new AJAXAnswer("Account successfully created !", true);
+		$answer = new AJAXAnswer("Account successfully created!", true);
 		return $answer->getJSON();
 	}
 	public function removeAccount($user){
 		$query = $this->database->prepare("DELETE FROM BAT_web WHERE user = :user;");
 		$query->execute(array("user" => $user));
 		if($query->rowCount() > 0){
-			$answer = new AJAXAnswer("Account successfully deleted !", true);
+			$answer = new AJAXAnswer("Account successfully deleted!", true);
 			return $answer->getJSON();
 		}else{
-			$answer = new AJAXAnswer("Error: there is no account with an such user.", true);
+			$answer = new AJAXAnswer("Error: there is no account with that name!", true);
 			return $answer->getJSON();
 		}
 	}
@@ -67,10 +67,10 @@ class admin_model extends BaseModel{
 		$query = $this->database->prepare("UPDATE BAT_web SET superuser = !superuser WHERE user = :user;");
 		$query->execute(array("user" => $user));
 		if($query->rowCount() > 0){
-			$answer = new AJAXAnswer($user . "'s SuperUser rights have been updated !", true);
+			$answer = new AJAXAnswer($user . "'s SuperUser rights have been updated!", true);
 			return $answer->getJSON();
 		}else{
-			$answer = new AJAXAnswer("Error: there is no account with an such user.", true);
+			$answer = new AJAXAnswer("Error: there is no account with that name!", true);
 			return $answer->getJSON();
 		}
 	}
