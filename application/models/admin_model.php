@@ -37,7 +37,7 @@ class admin_model extends BaseModel{
 			return $answer->getJSON();
 		}
 		if(strlen($password) < 6){
-			$answer = new AJAXAnswer("Error: the password length must be 6 characters minimum", false);
+			$answer = new AJAXAnswer("Error: the password must be 6 characters or longer", false);
 			return $answer->getJSON();
 		}
 	
