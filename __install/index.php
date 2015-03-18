@@ -23,12 +23,12 @@
 		<div class="col-md-8">
 			<center>
 			<div class="jumbotron">
-			<p>Hi, welcome to the setup of the BAT WebInterface !</p>
+			<p>Hi, welcome to the setup of the BAT WebInterface!</p>
 			<br>
 			<?php 
 			require("../application/config/config.inc.php");
 			if(empty($host) || empty($database) || empty($user)){
-				echo "<p class='text-default'>To start, please fill out the configuration file (located into application/config/config.inc.php)</p>";
+				echo "<p class='text-default'>To start, please fill out the configuration file (located in application/config/config.inc.php)</p>";
 				return;
 			}
 			try{
@@ -47,14 +47,14 @@
 			<?php 
 				$query = $database->query("SELECT * FROM BAT_web;");
 				if($query->rowCount() > 0){?>
-					<p class='text-success'>The installation is almost over ! You must delete the '_install' folder 
-						and then just go at the root of the bat folder (<a href="../index.php">index.php</a>).</a></p>
+					<p class='text-success'>The installation is almost over! You must now delete the '_install' folder 
+						and then go to the directory of the installation (<a href="../index.php">index.php</a>).</a></p>
 				<?php }else{?>
 				<p class='text-default'>You must now create your admin account <a href="createaccount.php">there</a></p>
 			<?php
 			}}catch(Exception $e)
 			{
-				echo "<p class='text-danger'>An error occured during the connection to the database.</p> 
+				echo "<p class='text-danger'>An error occured while connecting to the database to the database.</p> 
 					Please check your database login information : ".$e->getMessage();
 			}
 			?>
