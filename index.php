@@ -6,7 +6,7 @@
  * License : GPL V3 -> https://github.com/alphartdev/BungeeAdminTools/blob/master/LICENSE
  */
 if(is_dir("__install")){
-	echo "Once you installed the WebInterface, you must delete the install folder to use the interface.";
+	echo "Once you have installed the WebInterface, you must delete the install folder in to use the interface.";
 	exit;
 }
 
@@ -55,5 +55,5 @@ $controller = $router->getController();
 $controller->executeAction();
 
 if($debugMode){
-	echo "<h3><center>Memory peak usage :" . floor((memory_get_peak_usage() / 1024)) . "Kb</center></h3>";
+	echo "<h3><center>Peak memory usage:" . floor((memory_get_peak_usage() / 1024)) . "Kb</center></h3>";
 }

@@ -21,7 +21,7 @@
 	<!-- Ban list part -->
 	<div class="panel <?php if(empty($data['bans'])) {echo "panel-info";} else {echo "panel-warning";}?>">
 		<?php if(empty($data['bans'])) {?>
-		<div class="panel-heading"><h4 class="panel-title"><strong>Ban list</strong> - This player was never banned !</h4></div>
+		<div class="panel-heading"><h4 class="panel-title"><strong>Ban list</strong> - This player has never been banned!</h4></div>
 		<?php }else{?>
 		<div class="panel-heading"><h4 class="panel-title">
 		<a href="#" onclick="deployPanel('ban_table');"><span class="glyphicon glyphicon-arrow-down" style="color: gold;"></span></a> 
@@ -63,7 +63,7 @@
 	<!-- Mute list part -->
 	<div class="panel <?php if(empty($data['mutes'])) {echo "panel-info";} else {echo "panel-warning";}?>">
 		<?php if(empty($data['mutes'])) {?>
-		<div class="panel-heading"><h4 class="panel-title"><strong>Mute list</strong> - This player was never muted !</h4></div>
+		<div class="panel-heading"><h4 class="panel-title"><strong>Mute list</strong> - This player has never been muted!</h4></div>
 		<?php }else{?>
 		<div class="panel-heading"><h4 class="panel-title">
 		<a href="#" onclick="deployPanel('mute_table');"><span class="glyphicon glyphicon-arrow-down" style="color: gold;"></span></a> 
@@ -105,7 +105,7 @@
 	<!-- Kick list part -->
 	<div class="panel <?php if(empty($data['kicks'])) {echo "panel-info";} else {echo "panel-warning";}?>">
 		<?php if(empty($data['kicks'])) {?>
-		<div class="panel-heading"><h4 class="panel-title"><strong>Kick list</strong> - This player was never kicked !</h4></div>
+		<div class="panel-heading"><h4 class="panel-title"><strong>Kick list</strong> - This player has never been kicked!</h4></div>
 		<?php }else{?>
 		<div class="panel-heading"><h4 class="panel-title">
 		<a href="#" onclick="deployPanel('kick_table');"><span class="glyphicon glyphicon-arrow-down" style="color: gold;"></span></a>
@@ -138,7 +138,7 @@
 	<!-- Warning list part - Comment aren't displayed for non-auth user -->
 	<div class="panel <?php if(empty($data['comments'])) {echo "panel-info";} else {echo "panel-warning";}?>">
 		<?php if(empty($data['comments'])) {?>
-		<div class="panel-heading"><h4 class="panel-title"><strong>Warning list</strong> - Nobody has warned this player !</h4></div>
+		<div class="panel-heading"><h4 class="panel-title"><strong>Warning list</strong> - Nobody has warned this player!</h4></div>
 		<?php }else{?>
 		<div class="panel-heading"><h4 class="panel-title">
 		<a href="#" onclick="deployPanel('comment_table');"><span class="glyphicon glyphicon-arrow-down" style="color: gold;"></span></a>

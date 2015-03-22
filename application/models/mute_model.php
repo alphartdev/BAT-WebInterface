@@ -72,7 +72,7 @@ class mute_model extends BaseModel{
 			$answer = new AJAXAnswer("Successfully unmuted.", true);
 			return $answer->getJSON();
 		}else{
-			$answer = new AJAXAnswer("Error : No active mute with this id !", false);
+			$answer = new AJAXAnswer("Error : No active mute with this id!", false);
 			return $answer->getJSON();
 		}
 	}
@@ -91,7 +91,7 @@ class mute_model extends BaseModel{
 		$query->bindParam(":reason", $muteReason);
 		$query->execute();
 		if($query->rowCount() > 0){
-			$answer = new AJAXAnswer("Muted successfully !", true);
+			$answer = new AJAXAnswer("Muted successfully!", true);
 			return $answer->getJSON();
 		}else{
 			$answer = new AJAXAnswer("Error : the mute process has failed for unknown reason.", false);

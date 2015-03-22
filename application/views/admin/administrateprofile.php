@@ -91,7 +91,7 @@ Except the loading of display data, all the call are made with ajax and the resu
 <div class="panel <?php if(empty($data['mutes'])) {echo "panel-info";} else {echo "panel-warning";}?>">
 	<div class="panel-heading clearfix">
 		<?php if(empty($data['mutes'])) {?>
-		<h4 class="panel-title pull-left" style="padding-top: 7.5px;"><strong>Mute list</strong> - This player was never muted !</h4>
+		<h4 class="panel-title pull-left" style="padding-top: 7.5px;"><strong>Mute list</strong> - This player was never muted!</h4>
 		<a class="btn btn-sm btn-info pull-right" data-toggle="modal" data-target="#mute_modal">Mute</a>
 		</div>
 		<?php }else{?>
@@ -150,7 +150,7 @@ Except the loading of display data, all the call are made with ajax and the resu
 	class="panel <?php if(empty($data['kicks'])) {echo "panel-info";} else {echo "panel-warning";}?>">
 		<?php if(empty($data['kicks'])) {?>
 		<div class="panel-heading">
-		<h4 class="panel-title"><strong>Kick list</strong> - This player was never kicked !</h4>
+		<h4 class="panel-title"><strong>Kick list</strong> - This player was never kicked!</h4>
 		</div>
 		<?php }else{?>
 		<div class="panel-heading">
@@ -189,7 +189,7 @@ Except the loading of display data, all the call are made with ajax and the resu
 <div class="panel <?php if(empty($data['comments'])) {echo "panel-info";} else {echo "panel-warning";}?>">
 		<?php if(empty($data['comments'])) {?>
 		<div class="panel-heading clearfix">
-			<h4 class="panel-title pull-left" style="padding-top: 7.5px;"><strong>Warning and comment list</strong> - Nobody has warned this player !</h4>
+			<h4 class="panel-title pull-left" style="padding-top: 7.5px;"><strong>Warning and comment list</strong> - Nobody has warned this player!</h4>
 		</div>
 		</div>
 		<?php }else{?>
@@ -307,7 +307,7 @@ Except the loading of display data, all the call are made with ajax and the resu
 					<div class="form-group">
 						<label for="mute_expiration" class="control-label">Mute expiration</label>
 						<select class="form-control" id="mute-expiration-chooser">
-							<option>Definitive mute</option>
+							<option>Permanent mute</option>
 							<option>Temporary mute</option>
 						</select>
 					</div>

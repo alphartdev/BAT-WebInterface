@@ -39,14 +39,14 @@ $(function() {
 function handleRequest(request){
     request.done(function (jsonResponse, textStatus, jqXHR){
     	var response = JSON.parse(jsonResponse);
-    	if(response.message == "Account successfully created !"){
+    	if(response.message == "Account successfully created!"){
 			document.location.href = "index.php";
         }
     	displayModalInfo(response.message);
     });
 
     request.fail(function (jqXHR, textStatus, errorThrown){
-    	displayModalInfo("An error happend during the transaction : " + errorThrown);
+    	displayModalInfo("An error occured during the transaction: " + errorThrown);
     });
 
     request.always(function () {

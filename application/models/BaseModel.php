@@ -8,7 +8,7 @@ abstract class BaseModel{
 			$this->database = new PDO('mysql:host='.$host.';dbname='.$database, $user, $password);
 		}catch(Exception $e)
 		{
-			die('An error occured during the connection to the database. Please check your database login information : '.$e->getMessage());
+			die('An error occured connecting to the database. Please check your database login information: '.$e->getMessage());
 		}
 	}
 	
@@ -33,7 +33,7 @@ abstract class PunishmentEntry{
 	private $ipPunishment = false;
 	
 	protected function markAsIpPunishment(){
-		$this->ipPunishment = true;	
+		$this->ipPunishment = true;
 	}
 	
 	protected function isIPPunishment(){
