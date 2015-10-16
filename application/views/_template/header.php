@@ -16,7 +16,7 @@
 <script src="public/js/base-script.js"></script>
 </head>
 <body>
-	<nav class="navbar navbar-bat" role="navigation">
+	<nav class="navbar navbar-bat navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="index.php" id="navbar-title"><?php echo Message::network;?></a>
@@ -43,7 +43,6 @@
 			</div>
 		</div>
 	</nav>
-<?php include("application/views/_template/modal-info.php");?>
-<div class="row">
-<div class="col-md-1"></div>
-<div class="col-md-10">
+    <?php include("application/views/_template/modal-info.php");?>
+	<div class="container">
+        <div class="row">
