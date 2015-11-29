@@ -1,6 +1,6 @@
 <?php
 class admin_model extends BaseModel{
-	
+
 	public function getSalt($user){
 		$query = $this->database->prepare("SELECT * FROM BAT_web WHERE user = :user;");
 		$query->execute(array("user" => $user));
@@ -15,7 +15,7 @@ class admin_model extends BaseModel{
 		if($salt == null){
 			return false;
 		}
-		
+
 		$hash = hash("sha512", $pwd . $salt);
 		$query = $this->database->prepare("SELECT * FROM BAT_web WHERE user = :user AND password = :pwd;");
 		$query->execute(array("user" => $user, "pwd" => $hash));
@@ -25,13 +25,13 @@ class admin_model extends BaseModel{
 		}
 		return false;
 	}
-	
+
 	public function createAccount($user, $password){
 		if($this->getSalt($user) != null){
 			$answer = new AJAXAnswer("Error: an account with this username already exists.", false);
 			return $answer->getJSON();
 		}
-	
+
 		if(strlen($user) > 32){
 			$answer = new AJAXAnswer("Error: the username length must be 32 characters or less.", false);
 			return $answer->getJSON();
@@ -40,7 +40,7 @@ class admin_model extends BaseModel{
 			$answer = new AJAXAnswer("Error: the password must be 6 characters or longer", false);
 			return $answer->getJSON();
 		}
-	
+
 		$salt = substr(md5(uniqid(rand(), true)), 0, 16);
 		$hash = hash("sha512", $password . $salt);
 		$query = $this->database->prepare("INSERT INTO BAT_web (user, password, salt)
@@ -52,6 +52,21 @@ class admin_model extends BaseModel{
 		$answer = new AJAXAnswer("Account successfully created!", true);
 		return $answer->getJSON();
 	}
+
+	public function updateAccount($user, $password){
+		if(strlen($password) < 6){
+			$answer = new AJAXAnswer("Error: the password must be 6 characters or longer", false);
+			return $answer->getJSON();
+		}
+
+		$salt = substr(md5(uniqid(rand(), true)), 0, 16);
+		$hash = hash("sha512", $password . $salt);
+		$query = $this->database->prepare("UPDATE BAT_web SET password = '$hash', salt = '$salt' WHERE user = '$user'");
+		$query->execute();
+		$answer = new AJAXAnswer("Password successfully updated", true);
+		return $answer->getJSON();
+	}
+	
 	public function removeAccount($user){
 		$query = $this->database->prepare("DELETE FROM BAT_web WHERE user = :user;");
 		$query->execute(array("user" => $user));
@@ -74,7 +89,7 @@ class admin_model extends BaseModel{
 			return $answer->getJSON();
 		}
 	}
-	
+
 	public function listUsers(){
 		$query = $this->database->prepare("SELECT * FROM BAT_web;");
 		$query->execute();
@@ -85,17 +100,17 @@ class admin_model extends BaseModel{
 		}
 		return $users;
 	}
-	
+
 }
 class AdminProfile{
 	private $username;
 	private $superuser;
-	
+
 	public function __construct($username, $isSU){
 		$this->username = $username;
 		$this->superuser = $isSU;
 	}
-	
+
 	public function getData(){
 		return array(
 			"username" => $this->username,
