@@ -1,12 +1,12 @@
 <?php
 class admin extends BaseController{
 	private $model;
-	
+
 	public function __construct($action, $urlData){
 		parent::__construct($action, $urlData);
 		$this->model = new admin_model();
 	}
-	
+
 	protected function index(){
 		if($this->isAdmin()){
 			$this->action = "index";
@@ -15,7 +15,7 @@ class admin extends BaseController{
 			$this->login();
 		}
 	}
-	
+
 	// Login, logout pages
 	protected function login(){
 		$this->action = "login";
@@ -39,16 +39,33 @@ class admin extends BaseController{
 	}
 	protected function logout(){
 		if(!$this->isAdmin()){return;}
-		
+
 		session_destroy();
 		$answer = new AJAXAnswer("You have successfully disconnected !", true, "");
 		echo $answer->getJSON();
 	}
-	
+
+	// User change password
+	protected function changepassword(){
+		$this->action = "changepassword";
+		echo $this->getView(array());
+	}
+
+	protected function updateaccount(){
+		if(!$this->isAdmin()){$this->index();return;}
+		if(empty($_POST['password'])){
+			$answer = new AJAXAnswer("Please fill in your new password !", false);
+			echo $answer->getJSON();
+			return;
+		}
+
+		echo $this->model->updateAccount($_SESSION['username'], $_POST['password']);
+	}
+
 	// SuperUser features
 	protected function manageaccounts(){
 		if(!$this->isSU()){$this->index();return;}
-		
+
 		echo $this->getView(array("users" => $this->model->listUsers()));
 	}
 	protected function createaccount(){
@@ -58,7 +75,7 @@ class admin extends BaseController{
 			echo $answer->getJSON();
 			return;
 		}
-		
+
 		echo $this->model->createAccount($_POST['user'], $_POST['password']);
 	}
 	protected function deleteaccount(){
@@ -73,7 +90,7 @@ class admin extends BaseController{
 			echo $answer->getJSON();
 			return;
 		}
-		
+
 		echo $this->model->removeAccount($_POST['user']);
 	}
 	protected function toggleSU(){
@@ -88,8 +105,8 @@ class admin extends BaseController{
 			echo $answer->getJSON();
 			return;
 		}
-		
+
 		echo $this->model->toogleSU($_POST['user']);
 	}
-	
+
 }
