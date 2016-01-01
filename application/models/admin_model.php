@@ -61,8 +61,11 @@ class admin_model extends BaseModel{
 
 		$salt = substr(md5(uniqid(rand(), true)), 0, 16);
 		$hash = hash("sha512", $password . $salt);
-		$query = $this->database->prepare("UPDATE BAT_web SET password = '$hash', salt = '$salt' WHERE user = '$user'");
-		$query->execute();
+		$query = $this->database->prepare("UPDATE BAT_web SET password = :pwd, salt = :salt WHERE user = :user;");
+		$query->execute(array(
+				"user" => $user,
+				"pwd" => $hash,
+				"salt" => $salt));
 		$answer = new AJAXAnswer("Password successfully updated", true);
 		return $answer->getJSON();
 	}
