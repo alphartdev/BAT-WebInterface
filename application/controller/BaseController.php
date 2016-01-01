@@ -52,28 +52,81 @@ abstract class BaseController{
 		}
 		return $sortingColumn;
 	}
-	
-	protected function generatePaginationView($currentPage, $totalPages){
-		$display = "<center><ul class='pagination'>";
-		if($currentPage == 1){
-			$display .= "<li class='active'><a href='#' onClick='choosePage(1)'>1</a></li>";
+
+	protected function generatePaginationView($currentPage, $totalPages) {
+
+		if ($totalPages == 1) {
+			return "";
 		}
-		else{
-			$display .= "<li><a href='#' onClick='choosePage(1)'>1</a></li>";
-			if($currentPage == 2){
-				$display .= "<li class='active'><a href='#' onClick='choosePage(2)'>2</a></li>";
-			}else{
-				$display .= "<li><a href='#' onClick='openPageSelector()'>...</a></li>";
-				$display .= "<li class='active'><a href='#' onClick='choosePage($currentPage)'>$currentPage</a></li>";
+
+		$display = "<ul class='pagination'>";
+
+		$stack = array();
+
+		if ($totalPages <= 7) {
+			// Just display 5 Pagination Buttons
+			for ($i = 1; $i <= $totalPages; $i++) {
+				array_push($stack, $i);
+			}
+		} else {
+
+			$stack = array(1, $totalPages);
+
+			if ($currentPage == 1) {
+				// Add 5 following
+				for ($i = 1; $i <= 5; $i++){
+					array_push($stack, ($currentPage+$i));
+				}
+			} else if ($currentPage == $totalPages) {
+				// Add 5 previous
+				for ($i = 1; $i <= 5; $i++){
+					array_push($stack, ($currentPage-$i));
+				}
+			} else {
+				array_push($stack, ($currentPage));
+
+				$missing1 = 2;
+				$missing2 = 2;
+
+				while (count($stack) < 7) {
+					for ($i = 1; $i <= $missing1; $i++ ){
+						$pageToAdd = $currentPage - $i;
+						if (!in_array($pageToAdd, $stack) && $pageToAdd > 1) {
+							array_push($stack, $pageToAdd);
+						} else {
+							$missing2++;
+						}
+					}
+
+					for ($i = 1; $i <= $missing2; $i++ ){
+						$pageToAdd = $currentPage + $i;
+						if (!in_array($pageToAdd, $stack) && $pageToAdd < $totalPages) {
+							array_push($stack, $pageToAdd);
+						} else {
+							$missing1++;
+						}
+					}
+				}
 			}
 		}
-		if($currentPage + 1 < $totalPages){
-			$display .= "<li><a href='#' onClick='openPageSelector()'>...</a></li>";
+
+		asort($stack);
+
+		$lastval = 0;
+		foreach ($stack as &$val) {
+			if (($val - 1) != $lastval) {
+				$display .= "<li class='disabled'><a href=''#‘>...</a></li>";
+			}
+
+			$lastval = $val;
+			if ($val == $currentPage) {
+				$display .= "<li class='active'><a href='#' onClick='choosePage($val)'> $val </a></li>";
+			} else {
+				$display .= "<li><a href='#' onClick='choosePage($val)'>$val</a></li>";
+			}
 		}
-		if($currentPage != $totalPages){
-			$display .= "<li><a href='#' onClick='choosePage($totalPages)'>$totalPages</a></li>";
-		}
-		$display .= "</ul></center>";
+
+		$display .= "</ul>";
 		return $display;
 	}
 	
