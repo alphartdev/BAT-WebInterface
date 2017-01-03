@@ -1,10 +1,9 @@
 <?php
 // Database connection informations
-$host = "testAGAIN";
+$host = "";
 $database = "";
 $user = "";
 $password = "";
-$port="3306"; // 3306 default port for mysql
 
 // Debug settings
 $debugMode = false; // Turn on to display all errors
