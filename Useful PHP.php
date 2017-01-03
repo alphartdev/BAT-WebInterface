@@ -15,3 +15,7 @@ Check Page Name And If It's Equal To x Then Do Something:
 Reads the ?p=PAGENAME
 
 Get network name content from messages.php: <?php echo Message::network;?>
+
+Put "danger-bat" if player is checked to be currently banned: <?php echo $ban['state'] ? "danger-bat" : "";?>
+
+Put "danger-bat" if player is checked to be currently muted: <?php echo $mute['state'] ? "danger-bat" : "";?>

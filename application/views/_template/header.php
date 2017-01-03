@@ -21,6 +21,7 @@
 			<link rel="stylesheet" href="res/themes/Yeti/css/custom.css?version=2" title="Yeti">
 			<link rel="stylesheet" href="res/themes/Yeti/css/font-awesome.min.css?version=2" title="Yeti">
 	<!-- END CUSTOM THEMES -->
+	<link rel="stylesheet" href="public/styles/custom.css">
 </head>
 <body>
 	<nav class="navbar" role="navigation">
