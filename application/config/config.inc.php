@@ -1,6 +1,6 @@
 <?php
 // Database connection informations
-$host = "test32434";
+$host = "test32434asdasdasdasdsa";
 $database = "";
 $user = "";
 $password = "";
