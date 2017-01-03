@@ -8,9 +8,6 @@ This file has two parts :
 h1, h2{
 	font-family: 'Bree Serif', serif;
 }
-body {
-	padding-top: 70px;
-}
 body, .jumbotron p{
 	font-family: 'TrebuchetSansMS', sans-serif;
 	font-size: 14px;

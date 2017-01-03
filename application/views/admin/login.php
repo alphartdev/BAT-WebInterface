@@ -1,5 +1,5 @@
 <div class="container jumbotron">
-<h2 style="text-align: center">Authentification page</h2>
+<h2 style="text-align: center">Authentication page</h2>
 <form class="form-horizontal ajax-form" role="form" method="post" action="index.php?p=admin&action=processlogin" id="login-form">
   <div class="form-group">
   	<div class="col-sm-3"></div>
