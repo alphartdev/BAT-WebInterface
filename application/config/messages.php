@@ -1,6 +1,6 @@
 <?php
 class Message{
-const network = "Network"; // Name which will be displayed on most pages
+const network = "Test Net"; // Name which will be displayed on most pages
 
 // Messages : their use is explained in the comment on their right
 const noReason = "No reason"; // When there are no reason associated to a punishment

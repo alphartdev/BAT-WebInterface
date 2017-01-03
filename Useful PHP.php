@@ -14,3 +14,4 @@ Check Page Name And If It's Equal To x Then Do Something:
 <?php if(get_class($this) == "home"){echo "active";}?>
 Reads the ?p=PAGENAME
 
+Get network name content from messages.php: <?php echo Message::network;?>
