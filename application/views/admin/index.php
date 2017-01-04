@@ -17,7 +17,7 @@
 
 <?php if($this->isSU()){ ?>
 
-	<div class="panel panel-default margin-fix">
+	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h3 class="panel-title">Superuser Admin Actions</h3>
 		</div>
@@ -28,7 +28,7 @@
 		</div>
 	</div>
 
-	<div class="panel panel-default margin-fix">
+	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h3 class="panel-title">Admin Actions</h3>
 		</div>
@@ -45,7 +45,7 @@
 	
 <?php } else { ?>
 
-	<div class="panel panel-default margin-fix">
+	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h3 class="panel-title">Admin Actions</h3>
 		</div>

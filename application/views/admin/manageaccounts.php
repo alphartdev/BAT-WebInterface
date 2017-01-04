@@ -1,10 +1,10 @@
 <script type="text/javascript" src="public/js/adminaccount.js"></script>
-<div class="container jumbotron">
+<div class="well">
 	<h2 style="text-align: center">Manage accounts</h2>
 	<br>
 
-	<h4 style="text-decoration: underline;">Accounts list :</h4>
-	<table class="table" style="background: white;">
+	<h4>Accounts list :</h4>
+	<table class="table">
 		<thead>
 			<tr>
 				<th>Username</th>
@@ -37,7 +37,7 @@
 	</table>
 	<br>
 
-	<h4 style="text-decoration: underline;">Create an account :</h4>
+	<h4>Create an account :</h4>
 	<form class="form-horizontal ajax-form" role="form" method="post" autocomplete="off" action="index.php?p=admin&action=createaccount">
 		<div class="form-group">
 			<div class="col-sm-3"></div>
