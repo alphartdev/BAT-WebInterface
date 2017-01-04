@@ -65,10 +65,10 @@ class KickEntry extends PunishmentEntry{
 	function __construct($data){
 		if(isset($data['player'])){
 			$this->player = $data['player'];
-			$this->headUrl = "https://cravatar.eu/head/".$this->player."/32";
+			$this->headUrl = "https://cravatar.eu/helmhead/".$this->player."/32";
 		}else{
 			$this->player = $data['UUID'];
-			$this->headUrl = "https://cravatar.eu/head/char/32";
+			$this->headUrl = "https://cravatar.eu/helmhead/char/32";
 		}
 		$this->server = ($data ['kick_server'] == "(global)") ? Message::globalPunishment : $data ['kick_server'];
 		$this->reason = ($data ['kick_reason'] == "noreason") ? Message::noReason : $data ['kick_reason'];
