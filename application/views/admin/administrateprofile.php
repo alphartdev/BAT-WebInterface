@@ -28,7 +28,7 @@ Except the loading of display data, all the call are made with ajax and the resu
 	<br>
 		<p style="text-align: center;">
 			Due to the synchronization delay, the modifications 
-			operated on a player profile may take <strong style="color: red;">at most 10 seconds to be applied ingame.</strong>
+			operated on a player profile may take <strong style="color: red;">at most 10 seconds to be applied ingame</strong>.
 		</p>
 
 	<!-- Ban list part -->
@@ -41,8 +41,9 @@ Except the loading of display data, all the call are made with ajax and the resu
 		<?php }else{?>
 		<h4 class="panel-title pull-left"  style="padding-top: 7.5px;">
 			<a href="#" onclick="deployPanel('ban_table');">
-			<span class="fa fa-chevron-down"></span></a>
-			<strong>Ban list</strong>
+				<span class="fa fa-chevron-down"></span>
+				<strong>Ban list</strong>
+			</a>
 		</h4>
 		<a class="btn btn-sm btn-info pull-right" data-toggle="modal" data-target="#ban_modal">Ban</a>
 	</div>
@@ -101,8 +102,9 @@ Except the loading of display data, all the call are made with ajax and the resu
 		<?php }else{?>
 		<h4 class="panel-title pull-left" style="padding-top: 7.5px;">
 			<a href="#" onclick="deployPanel('mute_table');">
-			<span class="fa fa-chevron-down"></span></a>
-			<strong>Mute list</strong>
+				<span class="fa fa-chevron-down"></span>
+				<strong>Mute list</strong>
+			</a>
 		</h4>
 		<a class="btn btn-sm btn-info pull-right" data-toggle="modal" data-target="#mute_modal">Mute</a>
 </div>
@@ -162,8 +164,9 @@ Except the loading of display data, all the call are made with ajax and the resu
 		<div class="panel-heading">
 		<h4 class="panel-title">
 			<a href="#" onclick="deployPanel('kick_table');">
-			<span class="fa fa-chevron-down"></span></a>
-			<strong>Kick list</strong>
+				<span class="fa fa-chevron-down"></span>
+				<strong>Kick list</strong>
+			</a>
 		</h4>
 		</div>
 	<div class="hidden" id="kick_table">
@@ -204,8 +207,9 @@ Except the loading of display data, all the call are made with ajax and the resu
 	<div class="panel-heading clearfix">
 		<h4 class="panel-title pull-left" style="padding-top: 7.5px;">
 			<a href="#" onclick="deployPanel('comment_table');">
-			<span class="fa fa-chevron-down"></span></a>
-			<strong>Warning and comment list</strong>
+				<span class="fa fa-chevron-down"></span>
+				<strong>Warning and comment list</strong>
+			</a>
 		</h4>
 	</div>
 	<div class="hidden" id="comment_table">
