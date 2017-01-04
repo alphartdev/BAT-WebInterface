@@ -14,3 +14,50 @@
 		<?php }?>
 	</p>
 </div>
+
+<?php if($this->isSU()){ ?>
+
+	<div class="panel panel-default margin-fix">
+		<div class="panel-heading">
+			<h3 class="panel-title">Superuser Admin Actions</h3>
+		</div>
+		<div class="panel-body">
+			<ul>
+				<li><a href="index.php?p=admin&action=manageaccounts">Account Management</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="panel panel-default margin-fix">
+		<div class="panel-heading">
+			<h3 class="panel-title">Admin Actions</h3>
+		</div>
+		<div class="panel-body">
+			<ul>
+				<li>
+					<p>
+						Visit the bans, mutes, kicks, or comments page & then click the head of a player in the list. Then you will be greeted by an admin page for that specific player.
+					</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+<?php } else { ?>
+
+	<div class="panel panel-default margin-fix">
+		<div class="panel-heading">
+			<h3 class="panel-title">Admin Actions</h3>
+		</div>
+		<div class="panel-body">
+			<ul>
+				<li>
+					<p>
+						Visit the bans, mutes, kicks, or comments page & then click the head of a player in the list. Then you will be greeted by an admin page for that specific player
+					</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+<?php } ?>
