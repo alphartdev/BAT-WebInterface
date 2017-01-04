@@ -7,6 +7,7 @@
 			you can manage punishment of the players <strong>and handle the admin accounts</strong>. More will come in the next version. Stay tuned!
 			
 			<?php }else{?>
+			
 			<!-- Not admin with SU rights -->
 			Welcome <?php echo $this->getUsername();?>! As an administrator, you can manage punishment of the players.
 			More will come in the next version. Stay tuned!
