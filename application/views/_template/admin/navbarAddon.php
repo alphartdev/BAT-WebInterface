@@ -8,12 +8,12 @@
 	</li>	
 	
 	<li class="dropdown alert-dropdown">
-	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="margin: -10px 0px; font-size: 16px;"><i class="fa fa-flag"></i> <div style="display: inline;" id="alerts"></div></span></a>
-	<ul class="dropdown-menu">
-		<li><a href="#">Click View Alerts</a></li>
-		<li role="separator" class="divider"></li>
-		<li><a href="../user/alerts">View Alerts</a></li>
-	</ul>
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="margin: -10px 0px; font-size: 16px;"><i class="fa fa-flag"></i> <div style="display: inline;" id="alerts"></div></span></a>
+		<ul class="dropdown-menu">
+			<li><a href="#">Click View Alerts</a></li>
+			<li role="separator" class="divider"></li>
+			<li><a href="../user/alerts">View Alerts</a></li>
+		</ul>
 	</li>
 	
 	<li class="dropdown">
@@ -36,4 +36,4 @@
 <!-- Datepicker includes -->
 <script type="text/javascript" src="public/js/moment.js"></script>
 <script type="text/javascript" src="public/js/bootstrap-datetimepicker.min.js"></script>
-<link rel="stylesheet" href="public/css/bootstrap-datetimepicker.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.44/css/bootstrap-datetimepicker.min.css">
