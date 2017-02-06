@@ -5,7 +5,7 @@ abstract class BaseModel{
 	public function __construct(){
 		require("application/config/config.inc.php");
 		try{
-			$this->database = new PDO('mysql:host='.$host.';port='.$port.';dbname='.$database, $user, $password);
+			$this->database = new PDO('mysql:host='.$host.';dbname='.$database, $user, $password);
 		}catch(Exception $e)
 		{
 			die('An error occured connecting to the database. Please check your database login information: '.$e->getMessage());

@@ -111,14 +111,14 @@ class MuteEntry extends PunishmentEntry{
 		$this->id = $data['mute_id'];
 		if(isset($data['player'])){
 			$this->player = $data['player'];
-			$this->headUrl = "https://cravatar.eu/head/".$this->player."/32";
+			$this->headUrl = "https://cravatar.eu/helmhead/".$this->player."/32";
 		}else{
 			if(isset($data['mute_ip'])){
 				$this->markAsIpPunishment();
 				$this->player = $data['mute_ip'];
 			}else{
 				$this->player = $data['UUID'];
-				$this->headUrl = "https://cravatar.eu/head/char/32";
+				$this->headUrl = "https://cravatar.eu/helmhead/char/32";
 			}
 		}
 		$this->server = ($data ['mute_server'] == "(global)") ? Message::globalPunishment : $data ['mute_server'];

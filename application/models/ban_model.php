@@ -112,14 +112,14 @@ class BanEntry extends PunishmentEntry{
 		$this->id = $data['ban_id'];
 		if(isset($data['player'])){
 			$this->player = $data['player'];
-			$this->headUrl = "https://cravatar.eu/head/".$this->player."/32";
+			$this->headUrl = "https://cravatar.eu/helmhead/".$this->player."/32";
 		}else{
 			if(isset($data['ban_ip'])){
 				$this->player = $data['ban_ip'];
 				$this->markAsIpPunishment();
 			}else{
 				$this->player = $data['UUID'];
-				$this->headUrl = "https://cravatar.eu/head/char/32";
+				$this->headUrl = "https://cravatar.eu/helmhead/char/32";
 			}
 		}
 		$this->server = ($data ['ban_server'] == "(global)") ? Message::globalPunishment : $data ['ban_server'];

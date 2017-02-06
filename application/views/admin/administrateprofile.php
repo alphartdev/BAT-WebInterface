@@ -5,44 +5,48 @@ It can also creates punishment.
 Except the loading of display data, all the call are made with ajax and the result are display in bootstrap modal.
 -->
 <script type="text/javascript" src="public/js/adminprofile.js"></script>
-<div class="container jumbotron">
+<div class="well">
 	<div class="row">
 		<div class="col-md-2">
 			<img class="img-responsive" src="<?php echo $data['headUrl'];?>"
-				alt="<?php echo $data['player'];?> head">
+			alt="<?php echo $data['player'];?> head">
 		</div>
 		<div class="col-md-9">
-			<h2 class="profile-title">
+			<h2>
 				<div class="row">
 					<div class="col-md-4"></div>
-			<?php echo $data['player'];?>'s profile
-			</div>
+					<?php echo $data['player'];?>'s Profile
+				</div>
 			</h2>
-			<ul class="profile-list">
-				<li>First login : <span class="lead"><?php echo $data['firstlogin'];?></span></li>
-				<li>Last login : <span class="lead"><?php echo $data['lastlogin'];?></span></li>
-				<li>Last ip : <span class="lead"><?php echo $data['lastip'];?></span></li>
+			<ul>
+				<li>First login : <span><?php echo $data['firstlogin'];?></span></li>
+				<li>Last login : <span><?php echo $data['lastlogin'];?></span></li>
+				<li>Last ip : <span><?php echo $data['lastip'];?></span></li>
 			</ul>
 		</div>
 	</div>
 	<br>
-		<p style="text-align: center;">Due to the <strong>synchronization delay</strong>, the modifications 
-			operated on a player profile may take <strong style="color: red;">at most 10 seconds to be applied ingame.</strong></p>
+		<p style="text-align: center;">
+			Due to the synchronization delay, the modifications 
+			operated on a player profile may take <strong style="color: red;">at most 10 seconds to be applied ingame</strong>.
+		</p>
+
 	<!-- Ban list part -->
 	<div class="panel <?php if(empty($data['bans'])) {echo "panel-info";} else {echo "panel-warning";}?>">
 		<div class="panel-heading clearfix">
-		<?php if(empty($data['bans'])) {?>
+			<?php if(empty($data['bans'])) {?>
 			<h4 class="panel-title pull-left"  style="padding-top: 7.5px;"><strong>Ban list</strong> - This player was never banned !</h4>
 			<a class="btn btn-sm btn-info pull-right" data-toggle="modal" data-target="#ban_modal">Ban</a>
 		</div>
 		<?php }else{?>
-			<h4 class="panel-title pull-left"  style="padding-top: 7.5px;">
+		<h4 class="panel-title pull-left"  style="padding-top: 7.5px;">
 			<a href="#" onclick="deployPanel('ban_table');">
-			<span class="glyphicon glyphicon-arrow-down" style="color: gold;"></span></a>
-			<strong>Ban list</strong>
-			</h4>
-			<a class="btn btn-sm btn-info pull-right" data-toggle="modal" data-target="#ban_modal">Ban</a>
-		</div>
+				<span class="fa fa-chevron-down"></span>
+				<strong>Ban list</strong>
+			</a>
+		</h4>
+		<a class="btn btn-sm btn-info pull-right" data-toggle="modal" data-target="#ban_modal">Ban</a>
+	</div>
 		<div class="hidden" id="ban_table">
 			<table class="table valign">
 				<thead>
@@ -86,20 +90,24 @@ Except the loading of display data, all the call are made with ajax and the resu
 			</table>
 		</div>
 		<?php }?>
-	</div>
+</div>
+
 <!-- Mute list part -->
 <div class="panel <?php if(empty($data['mutes'])) {echo "panel-info";} else {echo "panel-warning";}?>">
 	<div class="panel-heading clearfix">
 		<?php if(empty($data['mutes'])) {?>
 		<h4 class="panel-title pull-left" style="padding-top: 7.5px;"><strong>Mute list</strong> - This player was never muted!</h4>
 		<a class="btn btn-sm btn-info pull-right" data-toggle="modal" data-target="#mute_modal">Mute</a>
-		</div>
-		<?php }else{?>
-		<h4 class="panel-title pull-left" style="padding-top: 7.5px;"><a href="#" onclick="deployPanel('mute_table');">
-		<span class="glyphicon glyphicon-arrow-down" style="color: gold;"></span></a>
-		<strong>Mute list</strong></h4>
-		<a class="btn btn-sm btn-info pull-right" data-toggle="modal" data-target="#mute_modal">Mute</a>
 	</div>
+		<?php }else{?>
+		<h4 class="panel-title pull-left" style="padding-top: 7.5px;">
+			<a href="#" onclick="deployPanel('mute_table');">
+				<span class="fa fa-chevron-down"></span>
+				<strong>Mute list</strong>
+			</a>
+		</h4>
+		<a class="btn btn-sm btn-info pull-right" data-toggle="modal" data-target="#mute_modal">Mute</a>
+</div>
 	<div class="hidden" id="mute_table">
 		<table class="table">
 			<thead>
@@ -154,9 +162,12 @@ Except the loading of display data, all the call are made with ajax and the resu
 		</div>
 		<?php }else{?>
 		<div class="panel-heading">
-		<h4 class="panel-title"><a href="#" onclick="deployPanel('kick_table');">
-		<span class="glyphicon glyphicon-arrow-down" style="color: gold;"></span></a>
-		<strong>Kick list</strong></h4>
+		<h4 class="panel-title">
+			<a href="#" onclick="deployPanel('kick_table');">
+				<span class="fa fa-chevron-down"></span>
+				<strong>Kick list</strong>
+			</a>
+		</h4>
 		</div>
 	<div class="hidden" id="kick_table">
 		<table class="table">
@@ -187,17 +198,19 @@ Except the loading of display data, all the call are made with ajax and the resu
 	
 <!-- Warning and comment list -->
 <div class="panel <?php if(empty($data['comments'])) {echo "panel-info";} else {echo "panel-warning";}?>">
-		<?php if(empty($data['comments'])) {?>
-		<div class="panel-heading clearfix">
-			<h4 class="panel-title pull-left" style="padding-top: 7.5px;"><strong>Warning and comment list</strong> - Nobody has warned this player!</h4>
-		</div>
-		</div>
+	<?php if(empty($data['comments'])) {?>
+	<div class="panel-heading clearfix">
+		<h4 class="panel-title pull-left" style="padding-top: 7.5px;"><strong>Warning and comment list</strong> - Nobody has warned this player!</h4>
+	</div>
+</div>
 		<?php }else{?>
-		<div class="panel-heading clearfix">
+	<div class="panel-heading clearfix">
 		<h4 class="panel-title pull-left" style="padding-top: 7.5px;">
-		<a href="#" onclick="deployPanel('comment_table');"><span
-			class="glyphicon glyphicon-arrow-down" style="color: gold;"></span></a>
-		<strong>Warning and comment list</strong></h4>
+			<a href="#" onclick="deployPanel('comment_table');">
+				<span class="fa fa-chevron-down"></span>
+				<strong>Warning and comment list</strong>
+			</a>
+		</h4>
 	</div>
 	<div class="hidden" id="comment_table">
 		<table class="table">
@@ -211,18 +224,18 @@ Except the loading of display data, all the call are made with ajax and the resu
 			</thead>
 			<tbody>
 				<?php foreach ($data['comments'] as $entry){
-					  $comment = $entry->getData();?>
-						<tr class="warning">
+				$comment = $entry->getData();?>
+				<tr class="warning">
 					<td><?php echo $comment['type'] == "NOTE" ? "comment" : "warning";?></td>
 					<td><?php echo $comment['reason'];?></td>
 					<td><?php echo $comment['staff'];?></td>
 					<td><?php echo $comment['date'];?></td>
 				</tr>
-					<?php } ?>
-				</tbody>
+				<?php } ?>
+			</tbody>
 		</table>
 	</div>
-		<?php }?>
+	<?php }?>
 	</div>
 </div>
 
@@ -236,45 +249,45 @@ Except the loading of display data, all the call are made with ajax and the resu
 				<button type="button" class="close" data-dismiss="modal">
 					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 				</button>
-				<h4 class="modal-title" id="ban_modal_title">Ban form</h4>
+				<h4 class="modal-title" id="ban_modal_title">Ban <?php echo $data['player'];?></h4>
 			</div>
 			<form class="form-horizontal ajax-form" role="form" method="post" action="index.php?p=ban&action=ban">
-			<div class="modal-body row">
-				<div class="col-md-1"></div>
-				<div class="col-md-10">
-					<div class="form-group">
-						<label for="ban_server" class="control-label">Ban server</label>
-						<select class="form-control col-md-3" id="ban-server-chooser">
-							<option>Global ban</option>
-							<option>Specific server</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<input type="hidden" class="form-control col-md-6" id="ban-server" name="ban-server" placeholder="Ban server" value="(global)">
-					</div>
-					<div class="form-group">
-						<label for="ban_expiration" class="control-label">Ban expiration</label>
-						<select class="form-control" id="ban-expiration-chooser">
-							<option>Definitive ban</option>
-							<option>Temporary ban</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<input type="hidden" class="form-control timepicker" id="ban-expiration" name="ban-expiration" placeholder="Ban expiration" value="definitive">
-					</div>
-					<div class="form-group">
-						<label for="ban_reason" class="col-sm-3 control-label">Ban reason</label>
-						<div class="col-sm-9">
-							<textarea class="form-control" id="ban-reason" name="ban-reason" placeholder="Ban reason"></textarea>
+				<div class="modal-body row">
+					<div class="col-md-1"></div>
+					<div class="col-md-10">
+						<div class="form-group">
+							<label for="ban_server" class="control-label">Ban server</label>
+							<select class="form-control col-md-3" id="ban-server-chooser">
+								<option>Global ban</option>
+								<option>Specific server</option>
+							</select>
 						</div>
+						<div class="form-group">
+							<input type="hidden" class="form-control col-md-6" id="ban-server" name="ban-server" placeholder="Ban server" value="(global)">
+						</div>
+						<div class="form-group">
+							<label for="ban_expiration" class="control-label">Ban expiration</label>
+							<select class="form-control" id="ban-expiration-chooser">
+								<option>Definitive ban</option>
+								<option>Temporary ban</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<input type="hidden" class="form-control timepicker" id="ban-expiration" name="ban-expiration" placeholder="Ban expiration">
+						</div>
+						<div class="form-group">
+							<label for="ban_reason" class="col-sm-3 control-label">Ban reason</label>
+							<div class="col-sm-9">
+								<textarea class="form-control" id="ban-reason" name="ban-reason" placeholder="Ban reason"></textarea>
+							</div>
+						</div>
+						<input type="hidden" value="<?php echo $data['player'];?>" name="player">
 					</div>
-					<input type="hidden" value="<?php echo $data['player'];?>" name="player">
 				</div>
-			</div>
-			<div class="modal-footer">
-				<p id="request-status"></p>
-				<button type="submit" class="btn btn-success">Ban</button>
-			</div>
+				<div class="modal-footer">
+					<p id="request-status"></p>
+					<button type="submit" class="btn btn-danger">Ban</button>
+				</div>
 			</form>
 		</div>
 	</div>
@@ -288,7 +301,7 @@ Except the loading of display data, all the call are made with ajax and the resu
 				<button type="button" class="close" data-dismiss="modal">
 					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 				</button>
-				<h4 class="modal-title" id="mute_modal_title">Mute form</h4>
+				<h4 class="modal-title" id="mute_modal_title">Mute <?php echo $data['player'];?></h4>
 			</div>
 			<form class="form-horizontal ajax-form" role="form" method="post" action="index.php?p=mute&action=mute">
 			<div class="modal-body row">
@@ -312,7 +325,7 @@ Except the loading of display data, all the call are made with ajax and the resu
 						</select>
 					</div>
 					<div class="form-group">
-						<input type="hidden" class="form-control timepicker" id="mute-expiration" name="mute-expiration" placeholder="Mute expiration" value="definitive">
+						<input type="hidden" class="form-control timepicker" id="mute-expiration" name="mute-expiration" placeholder="Mute expiration">
 					</div>
 					<div class="form-group">
 						<label for="mute_reason" class="col-sm-3 control-label">Mute reason</label>
@@ -325,7 +338,7 @@ Except the loading of display data, all the call are made with ajax and the resu
 			</div>
 			<div class="modal-footer">
 				<p id="request-status"></p>
-				<button type="submit" class="btn btn-success">Mute</button>
+				<button type="submit" class="btn btn-danger">Mute</button>
 			</div>
 			</form>
 		</div>
@@ -341,7 +354,7 @@ Except the loading of display data, all the call are made with ajax and the resu
 				<button type="button" class="close" data-dismiss="modal">
 					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 				</button>
-				<h4 class="modal-title" id="unban_modal_title">Unban form</h4>
+				<h4 class="modal-title" id="unban_modal_title">Unban <?php echo $data['player'];?></h4>
 			</div>
 			<form class="form-horizontal ajax-form" role="form" method="post" action="index.php?p=ban&action=unban">
 			<div class="modal-body">
@@ -372,7 +385,7 @@ Except the loading of display data, all the call are made with ajax and the resu
 				<button type="button" class="close" data-dismiss="modal">
 					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 				</button>
-				<h4 class="modal-title" id="unmute_modal_title">Unmute form</h4>
+				<h4 class="modal-title" id="unmute_modal_title">Unmute <?php echo $data['player'];?></h4>
 			</div>
 			<form class="form-horizontal ajax-form" role="form" method="post" action="index.php?p=mute&action=unmute">
 			<div class="modal-body">
