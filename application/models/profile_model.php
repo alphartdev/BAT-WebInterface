@@ -38,6 +38,7 @@ class PlayerData{
 	// Entries of all the modules
 	private $banEntries;
 	private $muteEntries;
+	private $watchEntries;
 	private $kickEntries;
 	private $commentEntries;
 	
@@ -60,6 +61,7 @@ class PlayerData{
 		// Gather different modules stats
 		$banModel = new ban_model(); $this->banEntries = $banModel->getPlayerBans($this->uuid);
 		$muteModel = new mute_model(); $this->muteEntries = $muteModel->getPlayerMutes($this->uuid);
+		$watchModel = new watch_model(); $this->watchEntries = $watchModel->getPlayerWatches($this->uuid);
 		$kickModel = new kick_model(); $this->kickEntries = $kickModel->getPlayerKicks($this->uuid);
 		$commentModel = new comment_model(); $this->commentEntries = $commentModel->getPlayerComments($this->uuid);
 	}
@@ -74,6 +76,7 @@ class PlayerData{
 			"lastip" => $this->lastip,
 			"bans" => $this->banEntries,
 			"mutes" => $this->muteEntries,
+			"watches" => $this->watchEntries,
 			"kicks" => $this->kickEntries,
 			"comments" => $this->commentEntries
 		);

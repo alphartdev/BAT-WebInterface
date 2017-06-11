@@ -102,6 +102,48 @@
 		</div>
 		<?php }?>
 	</div>
+	<!-- Watch list part -->
+	<div class="panel <?php if(empty($data['watches'])) {echo "panel-info";} else {echo "panel-warning";}?>">
+		<?php if(empty($data['watches'])) {?>
+		<div class="panel-heading"><h4 class="panel-title"><strong>Watch list</strong> - This player has never been muted!</h4></div>
+		<?php }else{?>
+		<div class="panel-heading"><h4 class="panel-title">
+		<a href="#" onclick="deployPanel('watch_table');"><span class="glyphicon glyphicon-arrow-down" style="color: gold;"></span></a> 
+		<strong>Watch list</strong></h4></div>
+		<div class="hidden" id="watch_table">
+			<table class="table">
+				<thead>
+				<tr class ="default">
+				<th>Server</th>
+				<th>Reason</th>
+				<th>Staff</th>
+				<th>Date</th>
+				<th>State</th>
+				<th>Unwatch date</th>
+				<th>Unwatch staff</th>
+				<th>Unwatch reason</th>
+				</tr>
+				</thead>
+				<tbody>
+				<?php foreach ($data['watches'] as $entry){
+					  $watch = $entry->getData();?>
+						<tr class="<?php echo $watch['state'] ? "warning" : "info-bat";?>">
+							<td><?php echo $watch['server'];?></td>
+							<td><?php echo $watch['reason'];?></td>
+							<td><?php echo $watch['staff'];?></td>
+							<td><?php echo $watch['date'];?></td>
+							<td class="<?php echo $watch['state'] ? "danger-bat" : "";?>"><?php echo $watch['state'] 
+								? Message::state_ACTIVE : Message::state_ENDED;?></td>
+							<td><?php echo $watch['unwatch_date'];?></td>
+							<td><?php echo $watch['unwatch_staff'];?></td>
+							<td><?php echo $watch['unwatch_reason'];?></td>
+						</tr>
+					<?php } ?>
+				</tbody>
+			</table>
+		</div>
+		<?php }?>
+	</div>
 	<!-- Kick list part -->
 	<div class="panel <?php if(empty($data['kicks'])) {echo "panel-info";} else {echo "panel-warning";}?>">
 		<?php if(empty($data['kicks'])) {?>
